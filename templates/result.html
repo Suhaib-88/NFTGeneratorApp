@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        position: relative;
+        width: 20%;
+      }
+      
+      .image {
+        opacity: 1;
+        display: block;
+        width: 20%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+      
+      .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+      }
+      
+      .container:hover .image {
+        opacity: 0.3;
+      }
+      
+      .container:hover .middle {
+        opacity: 1;
+      }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <img src="static/NFT_pixelated_45x45.png" alt="Avatar" class="image" style="width:100%">
+        <div class="middle">
+            <a href="#" class="button" id="btn-download" download="Nft.png">Download</a>
+        </div>
+      </div>
+      <button onclick="history.back()"> Regenerate NFT</button>
+      <script>
+      var button = document.getElementById('btn-download');
+      button.addEventListener('click', function (e) {
+          var dataURL = canvas.toDataURL('image/png');
+          button.href = dataURL;
+            });
+      </script>
+</body>
+</html>
